@@ -8,9 +8,9 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather(location){
+  getWeather(location: string){
     return this.http.get(
-      'api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=d1f1192c61bff34c70979e832a2dbab3' + location
+      'api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=d1f1192c61bff34c70979e832a2dbab3'
 
   );
   }

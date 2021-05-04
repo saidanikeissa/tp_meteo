@@ -1,23 +1,40 @@
-<div class="col-md-6">
-  <h3 class="text-center my-4">Search for Weather:</h3>
-  <form
-    [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPI(weatherSearchForm.value)">
-    <div class="form-group">
-      <input
-        class="form-control"
-        type="text"
-        id="weatherLocation"
-        aria-describedby="weatherLocation"
-        placeholder="Please input a Location"
-      />
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="text-center my-4"> Recherche:</h3>
+      <form
+        [formGroup]="weatherSearchForm"
+        (ngSubmit)="sendToAPI(weatherSearchForm.value)"
+      >
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            id="weatherLocation"
+            aria-describedby="weatherLocation"
+            placeholder="entrer un nom d'une ville"
+            formControlName="location"
+          />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success btn-md">
+            recherche
+          </button>
+        </div>
+      </form>
     </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-success btn-md">
-        Search for the weather
-      </button>
+    <div class="col-md-6">
+      <h3 class="text-center my-4">Details:</h3>
+
+      <p class="text-center">
+        Température en degrés Celsius: {{ this.weatherData?.current.temp_c }}
+      </p>
+
+
+      <p class="text-center">
+        Location: {{ this.weatherData?.location.name }}, {{
+        this.weatherData?.location.country }}.
+      </p>
     </div>
-  </form>
-</div>
-<div class="col-md-6">
-  <h3 class="text-center my-4">Weather Details:</h3>
+  </div>
 </div>
